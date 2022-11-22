@@ -1,0 +1,60 @@
+.container {
+    margin: 0 auto;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: row;
+}
+
+.content_left {
+    display: flex;
+    background: linear-gradient(90deg, #F6693C 0%, #F69D3C 100%);
+    width: 50%;
+    justify-content: space-around;
+    align-items: center;
+}
+.content_right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+}
+
+.title {
+    background: -webkit-linear-gradient(90deg, #f95300 0%, #f1a85a 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+    font-size: 45px;
+    padding-bottom: 20%;
+    padding-top: 5%;
+}
+
+.orangeText {
+    font-size: 35px;
+    color: orange;
+}
+
+.simpleText {
+    font-size: 35px;
+}
+
+.spanText {
+    padding-bottom: 5%;
+}
+
+app-input {
+    padding-bottom: 2%;
+}
+
+app-button {
+   padding-top: 10%;
+}
+
+.logoHome {
+  background-image: url('../assets/cyber-security.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 70%;
+  height: 60%;
+}
