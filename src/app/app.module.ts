@@ -1,21 +1,28 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ButtonComponent } from './button/button.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { InputComponent } from './input/input.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ButtonComponent,
     ToolbarComponent,
-    InputComponent
+    InputComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
+    RouterModule.forRoot([
+      {path: '', component: LoginComponent},
+      {path: 'applications', component: ToolbarComponent}
+    ]),
     AppRoutingModule
   ],
   providers: [],
