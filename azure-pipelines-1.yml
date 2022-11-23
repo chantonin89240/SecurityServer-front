@@ -1,0 +1,21 @@
+trigger:
+- feature/archi 
+pool:
+- vmImage: Ubuntu-latest 
+steps:
+  - task : NodeTool@0
+  inputs :
+    versionSpec : '18.x'
+  displayName : 'Install Node.js'
+  - script : 
+    npm install -g @angular/cli
+    npm install 
+    npm run build
+
+  displayName : 'npm install and build'
+  - task : QodanaScan@2022
+  - task : PublishPipelineArtifact@1
+  inputs :
+    targetPath : '$(Build.SourcesDirectory')/dist'
+    artifact : 'dist'
+    publishLocation : 'pipeline'
