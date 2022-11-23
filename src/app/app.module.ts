@@ -8,6 +8,7 @@ import { ButtonComponent } from './button/button.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { InputComponent } from './input/input.component';
 import { LoginComponent } from './login/login.component';
+import { ApplicationComponent } from './application/application.component';
 
 @NgModule({
   declarations: [
@@ -15,13 +16,14 @@ import { LoginComponent } from './login/login.component';
     ButtonComponent,
     ToolbarComponent,
     InputComponent,
-    LoginComponent
+    LoginComponent,
+    ApplicationComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot([
       {path: '', component: LoginComponent},
-      {path: 'applications', component: ToolbarComponent}
+      {path: 'applications', component: ApplicationComponent}
     ]),
     AppRoutingModule
   ],
