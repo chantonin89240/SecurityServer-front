@@ -1,0 +1,46 @@
+.toolbar {
+    height: 100px;
+    background: linear-gradient(90deg, #F6693C 0%, #F69D3C 100%);
+    align-self: flex-start;
+    width: 100%;
+    display: flex;
+    align-items: center;
+
+}
+
+.logo {
+    background-image: url('../../assets/home.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 60px;
+    width: 60px;
+    margin-inline: 30px;
+    cursor: pointer;
+
+}
+
+.pipe {
+    height: 60px;
+    width: 1px;
+    background-color: white;
+
+}
+
+.navigation {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.navigation * {
+    margin-inline: 20px;
+}
+
+.text {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+
+}
