@@ -1,1 +1,3 @@
-<input class="inputMain" type={{type}} placeholder={{placeholder}}>
+<div [formGroup]="parentForm">
+    <input class="inputMain" [formControlName]="name" type={{type}} placeholder={{placeholder}}>
+</div>

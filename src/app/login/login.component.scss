@@ -2,59 +2,66 @@
     margin: 0 auto;
     min-height: 100vh;
     display: flex;
-    flex-direction: row;
-}
+    
+    &_left {
+        display: flex;
+        background: linear-gradient(90deg, #F6693C 0%, #F69D3C 100%);
+        width: 50%;
+        justify-content: space-around;
+        align-items: center;
 
-.content_left {
-    display: flex;
-    background: linear-gradient(90deg, #F6693C 0%, #F69D3C 100%);
-    width: 50%;
-    justify-content: space-around;
-    align-items: center;
-}
-.content_right {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 50%;
-}
+        &_homeLogo {
+            background-image: url('../../assets/cyber-security.svg');
+            background-size: contain;
+            background-repeat: no-repeat;
+            width: 70%;
+            height: 60%;
+        }
+    }
 
-.title {
-    background: -webkit-linear-gradient(90deg, #f95300 0%, #f1a85a 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-weight: bold;
-    font-size: 45px;
-    padding-bottom: 15%;
-    padding-top: 5%;
-}
+    &_right {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 50%;
 
-.orangeText {
-    font-size: 35px;
-    color: orange;
-}
+        &_title {
+            background: -webkit-linear-gradient(90deg, #f95300 0%, #f1a85a 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: bold;
+            font-size: 45px;
+            padding-bottom: 15%;
+            padding-top: 5%;
+        }
 
-.simpleText {
-    font-size: 35px;
-}
+        &_subtitle {
+            padding-bottom: 5%;
 
-.spanText {
-    padding-bottom: 5%;
+            &_orange {
+                font-size: 35px;
+                color: orange;
+            }
+            
+            &_text {
+                font-size: 35px;
+            }
+        }
+
+        &_form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    }
 }
 
 app-input {
-    padding-bottom: 2%;
+    padding-bottom: 5%;
 }
 
 app-button {
-   margin-top: 10%;
+   margin-top: 15%;
 }
 
-.logoHome {
-  background-image: url('../../assets/cyber-security.svg');
-  background-size: contain;
-  background-repeat: no-repeat;
-  width: 70%;
-  height: 60%;
-}

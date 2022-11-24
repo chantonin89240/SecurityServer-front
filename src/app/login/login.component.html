@@ -1,15 +1,17 @@
 <div class="container">
-    <div class="content_left">
-        <div class="logoHome"></div>
+    <div class="container_left">
+        <div class="container_left_homeLogo"></div>
     </div>
-    <div class="content_right">
-        <span class="title">SECURITY SERVER</span>
-        <label class="spanText">
-            <span class="orangeText">Login </span>
-            <span class="simpleText">Your account</span>
+    <div class="container_right">
+        <span class="container_right_title">SECURITY SERVER</span>
+        <label class="container_right_subtitle">
+            <span class="container_right_subtitle_orange">Login </span>
+            <span class="container_right_subtitle_text">Your account</span>
         </label>
-        <app-input type="text" placeholder="Email"></app-input>
-        <app-input type="password" placeholder="Password"></app-input>
-        <app-button routerLink="/applications" text="Login"></app-button>
+        <form [formGroup]="parentForm" class="container_right_form" autocomplete="off">
+            <app-input [parentForm]="parentForm" name="email" type="text" placeholder="Email"></app-input>
+            <app-input [parentForm]="parentForm" name="password" type="password" placeholder="Password"></app-input>
+            <app-button routerLink="/applications" (click)="submit()" text="Login"></app-button>
+        </form>
     </div>
 </div>
