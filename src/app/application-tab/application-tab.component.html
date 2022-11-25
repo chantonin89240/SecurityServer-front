@@ -7,7 +7,7 @@
         </tr>
         <tr *ngFor="let application of applications">
             <td>{{application.name}}</td>
-            <td>{{application.url}}</td>
+            <td><a href={{application.url}}>{{application.url}}</a></td>
             <td>{{application.claim}}</td>
             <td><div class="edit"></div></td>
             <td><div class="delete"></div></td>
