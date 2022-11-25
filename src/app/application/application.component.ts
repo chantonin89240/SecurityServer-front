@@ -15,7 +15,7 @@ export class ApplicationComponent implements OnInit {
       {name: "App1", url: "Url1", claim: "Claim1"},
       {name: "App2", url: "Url2", claim: "Claim2"},
       {name: "App3", url: "Url3", claim: "Claim3"},
-      {name: "App4", url: "Url4", claim: "{ \r\ntest \r\n}"},
+      {name: "Youtube", url: "https://youtube.com", claim: "{ data }"},
       {name: "App1App1App1App1App1App1App1App1App1", url: "Url1Url1Url1Url1Url1Url1Url1Url1Url1Url1Url1Url1Url1Url1Url1Url1Url1Url1", claim: "Claim1Claim1Claim1Claim1Claim1Claim1Claim1Claim1Claim1Claim1Claim1Claim1Claim1Claim1Claim1Claim1Claim1Claim1Claim1Claim1Claim1Claim1Claim1Claim1Claim1Claim1Claim1Claim1Claim1Claim1"},
       {name: "App2", url: "Url2", claim: "Claim2"},
       {name: "App3", url: "Url3", claim: "Claim3"},
