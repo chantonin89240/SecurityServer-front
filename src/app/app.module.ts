@@ -10,6 +10,7 @@ import { InputComponent } from './input/input.component';
 import { LoginComponent } from './login/login.component';
 import { ApplicationComponent } from './application/application.component';
 import { ApplicationTabComponent } from './application-tab/application-tab.component';
+import { ApplicationEditComponent } from './application-edit/application-edit.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ApplicationTabComponent } from './application-tab/application-tab.compo
     InputComponent,
     LoginComponent,
     ApplicationComponent,
-    ApplicationTabComponent
+    ApplicationTabComponent,
+    ApplicationEditComponent
   ],
   imports: [
     BrowserModule,

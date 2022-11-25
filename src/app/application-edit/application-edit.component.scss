@@ -1,0 +1,41 @@
+.application-edit {
+    display: flex;
+    flex-direction: column;
+    padding: 2% 8% 0 8%;
+    height: calc(100vh - 100px);
+
+    &_text {
+        font-size: 48px;
+        padding: 0 0 2% 2%;
+    }
+
+    &_form {
+        display: flex;
+        flex-direction: column;
+
+        &_input {
+            padding: 0 0 2% 2%;
+        }
+
+        &_container {
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+            border: 1px solid #F6693C;
+            border-radius: 40px;
+            width: 100%;
+            max-height: 30vh;
+            margin-bottom: 2%;
+
+            &_button {
+                align-self: flex-end;
+                padding: 5px;
+            }
+        }
+
+        &_buttons {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+}
