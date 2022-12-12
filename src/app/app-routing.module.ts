@@ -4,14 +4,14 @@ import { ApplicationEditComponent } from './application-edit/application-edit.co
 import { ApplicationComponent } from './application/application.component';
 import { LoginComponent } from './login/login.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {path: '', component: LoginComponent},
+  {path: 'applications', component: ApplicationComponent},
+  {path: 'application/edit', component: ApplicationEditComponent}
+];
 
 @NgModule({
-  imports: [RouterModule.forRoot([
-    {path: '', component: LoginComponent},
-    {path: 'applications', component: ApplicationComponent},
-    {path: 'applications-edit', component: ApplicationEditComponent}
-  ])],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
