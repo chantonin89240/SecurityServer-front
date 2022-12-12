@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Application } from '../models/application.interface';
+import { ApplicationService } from '../providers/application.service';
 
 @Component({
   selector: 'app-application',
@@ -10,8 +11,10 @@ export class ApplicationComponent implements OnInit {
 
   applications: Application[]
 
+  constructor(private applicationService: ApplicationService) { }
+
   ngOnInit(): void {
-    this.applications = [
+    /*this.applications = [
       {name: "App1", url: "Url1", claim: "Claim1"},
       {name: "App2", url: "Url2", claim: "Claim2"},
       {name: "App3", url: "Url3", claim: "Claim3"},
@@ -32,6 +35,11 @@ export class ApplicationComponent implements OnInit {
       {name: "App2", url: "Url2", claim: "Claim2"},
       {name: "App3", url: "Url3", claim: "Claim3"},
       {name: "App4", url: "Url4", claim: "Claim4"},
-    ]
+    ]*/
+
+    
+    this.applicationService.get().subscribe(applications => {
+      this.applications = applications
+    })
   }
 }
