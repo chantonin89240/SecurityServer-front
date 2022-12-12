@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { Application } from '../models/application.interface';
-import { ApplicationService } from '../providers/application.service';
+import { Application } from '../../../models/application.interface';
+import { ApplicationService } from '../../../providers/application.service';
 
 @Component({
-  selector: 'app-application',
-  templateUrl: './application.component.html',
-  styleUrls: ['./application.component.scss']
+  selector: 'app-application-home',
+  templateUrl: './application-home.component.html',
+  styleUrls: ['./application-home.component.scss']
 })
-export class ApplicationComponent implements OnInit {
+export class ApplicationHomeComponent implements OnInit {
 
   applications: Application[]
 

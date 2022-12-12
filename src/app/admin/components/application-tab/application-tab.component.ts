@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Application } from '../models/application.interface';
+import { Application } from '../../../models/application.interface';
 
 @Component({
   selector: 'app-application-tab',
