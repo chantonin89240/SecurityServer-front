@@ -1,14 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
-import { Application } from '../models/application.interface';
+import { Application } from '../../models/application.interface';
 import { Observable } from 'rxjs'
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApplicationService {
 
-  private readonly baseUrl: string = 'https://functionbackend-p2-g5.azurewebsites.net/api/'
+  private readonly baseUrl: string = environment.baseUrl
 
   constructor(private _httpClient: HttpClient) { }
   
