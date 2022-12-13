@@ -1,6 +1,15 @@
 <app-toolbar></app-toolbar>
 <div class="application">
     <span class="application_text">All applications</span>
-    <app-application-tab class="application_tab" [applications]="applications" ></app-application-tab>
+
+    <ng-container *ngIf="applications$ | async as applications; else loading">
+        <app-application-tab class="application_tab" [applications]="applications" ></app-application-tab>
+    </ng-container>
+    <ng-template #loading>
+        <div class="application_loading">
+            <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+        </div>
+    </ng-template>
+    
     <app-button routerLink="/application/edit" class="application_button" text="Create new app"></app-button>
 </div>
