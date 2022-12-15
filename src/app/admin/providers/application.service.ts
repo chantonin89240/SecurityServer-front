@@ -14,6 +14,6 @@ export class ApplicationService {
   constructor(private _httpClient: HttpClient) { }
   
   get(): Observable<Application[]> {
-    return this._httpClient.get<Application[]>(`${this.baseUrl}/GetApplications`)
+    return this._httpClient.get<Application[]>(`${this.baseUrl}GetApplications?`)
   }
 }
