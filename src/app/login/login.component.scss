@@ -53,6 +53,14 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+
+            &_error {
+                color: red;
+                top: -100%;
+                font-size: 16px;
+                font-weight: bold;
+                position: relative;
+            }
         }
     }
 }

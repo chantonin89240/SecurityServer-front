@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { Application } from '../models/application.interface';
+import { Observable } from 'rxjs';
+import { Application } from '../../../models/application.interface';
 
 @Component({
   selector: 'app-application-tab',
@@ -8,6 +9,7 @@ import { Application } from '../models/application.interface';
 })
 export class ApplicationTabComponent {
 
-  @Input() applications: Application[]
+  @Input() applications!: Application[]
+  //@Input() applications$! : Observable<Application[]>
 
 }

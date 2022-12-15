@@ -10,8 +10,16 @@
         </label>
         <form [formGroup]="parentForm" class="container_right_form" autocomplete="off">
             <app-input [parentForm]="parentForm" name="email" type="text" placeholder="Email"></app-input>
+            <div *ngIf="submitted && formControls['email'].errors">
+                <span class="container_right_form_error" *ngIf="formControls['email'].errors['required']">Email required</span>
+                <span class="container_right_form_error" *ngIf="formControls['email'].errors['email']">Email not compliant</span>
+            </div>
             <app-input [parentForm]="parentForm" name="password" type="password" placeholder="Password"></app-input>
-            <app-button routerLink="/applications" (click)="submit()" text="Login"></app-button>
+            <div *ngIf="submitted && formControls['password'].errors">
+                <span class="container_right_form_error" *ngIf="formControls['password'].errors['required']">Password required</span>
+            </div>
+            <app-button (click)="onSubmit()" text="Login"></app-button>
+            <div *ngIf="error">{{error}}</div>
         </form>
     </div>
 </div>
