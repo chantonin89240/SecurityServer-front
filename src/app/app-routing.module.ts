@@ -1,17 +1,19 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ApplicationEditComponent } from './application-edit/application-edit.component';
-import { ApplicationComponent } from './application/application.component';
 import { LoginComponent } from './login/login.component';
+import { AuthGuard } from './_guards/AuthGuard';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {path: '', component: LoginComponent},
+  {
+    path: '',
+    loadChildren: () => import('src/app/admin/admin.module').then(m => m.AdminModule),
+    canActivate: [AuthGuard]
+  }
+];
 
 @NgModule({
-  imports: [RouterModule.forRoot([
-    {path: '', component: LoginComponent},
-    {path: 'applications', component: ApplicationComponent},
-    {path: 'applications-edit', component: ApplicationEditComponent}
-  ])],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

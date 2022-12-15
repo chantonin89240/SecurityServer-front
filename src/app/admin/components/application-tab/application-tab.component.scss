@@ -26,7 +26,7 @@ td:nth-child(1){
 }
 
 td:nth-child(2){
-    width: 25%;
+    width: 40%;
     max-width: 1vw;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -54,7 +54,7 @@ tr:nth-child(odd) {
 }
 
 .edit {
-    background-image: url('../../assets/edit.svg');
+    background-image: url('../../../../assets/edit.svg');
     background-size: contain;
     background-repeat: no-repeat;
     cursor: pointer;
@@ -62,7 +62,7 @@ tr:nth-child(odd) {
 }
 
 .delete {
-    background-image: url('../../assets/delete.svg');
+    background-image: url('../../../../assets/delete.svg');
     background-size: contain;
     background-repeat: no-repeat;
     cursor: pointer;
