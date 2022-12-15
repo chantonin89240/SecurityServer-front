@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms'
+import { Application } from 'src/app/models/application.interface';
+import { ApplicationService } from '../../providers/application.service';
 
 @Component({
   selector: 'app-application-edit',
@@ -9,19 +11,28 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms'
 export class ApplicationEditComponent implements OnInit {
 
   parentForm: FormGroup
+  application : Application
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder, private applicationService: ApplicationService) {
     
   }
 
   ngOnInit() {
     this.parentForm = this.formBuilder.group({
       name: ['', Validators.required],
-      url: ['', Validators.required]
+      url: ['', Validators.required],
+      description: ['', Validators.required]
     })
   }
 
-  submit() {
-    console.log(this.parentForm.value)
+  onSubmit() {
+    this.application = {
+      name: this.parentForm.value.name,
+      url: this.parentForm.value.url,
+      description: this.parentForm.value.description,
+      claim: ''
+    }
+
+    this.applicationService.post(this.application)
   }
 }

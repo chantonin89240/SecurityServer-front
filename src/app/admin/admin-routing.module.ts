@@ -5,7 +5,7 @@ import { ApplicationHomeComponent } from './components/application-home/applicat
 
 const routes: Routes = [
   {path: 'applications', component: ApplicationHomeComponent},
-  {path: 'application/edit', component: ApplicationEditComponent}
+  {path: 'application-edit', component: ApplicationEditComponent}
 ];
 
 @NgModule({

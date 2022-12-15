@@ -19,7 +19,9 @@
                 <span class="container_right_form_error" *ngIf="formControls['password'].errors['required']">Password required</span>
             </div>
             <app-button (click)="onSubmit()" text="Login"></app-button>
-            <div *ngIf="error">{{error}}</div>
+            <div *ngIf="error">
+                <span class="container_right_form_error">{{error}}</span>
+            </div>
         </form>
     </div>
 </div>

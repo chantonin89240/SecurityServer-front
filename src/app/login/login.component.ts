@@ -54,7 +54,7 @@ export class LoginComponent implements OnInit {
           let user: userAuthenticate = JSON.parse(localStorage.getItem('user')!)
           this.router.navigate(user.isadmin ? ['/applications'] : ['/applications'])
         },
-        error: (e) => console.log(e)
+        error: (e) => this.error = e.error.Message
       })
   }
 }

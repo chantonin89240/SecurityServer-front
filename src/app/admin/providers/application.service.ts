@@ -16,4 +16,13 @@ export class ApplicationService {
   get(): Observable<Application[]> {
     return this._httpClient.get<Application[]>(`${this.baseUrl}GetApplications?`)
   }
+
+  post(application: Application) {
+    
+    console.log(JSON.stringify(application))
+
+    this._httpClient.post<any>(`${this.baseUrl}CreateApplication?`, JSON.stringify(application)).subscribe(data => {
+      
+    })
+  }
 }
