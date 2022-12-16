@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms'
 import { Login } from '../models/login.interface';
 import { AuthenticateService } from '../providers/authenticate.service';
-import { first } from 'rxjs/operators';
+import { finalize, first } from 'rxjs/operators';
 import { userAuthenticate } from '../models/userAuthenticate.interface';
 import { Router } from '@angular/router';
 
@@ -48,11 +48,10 @@ export class LoginComponent implements OnInit {
     }
     
     this.authenticateService.login(this.login)
-      .pipe(first())
       .subscribe({
         next: (n) => {
           let user: userAuthenticate = JSON.parse(localStorage.getItem('user')!)
-          this.router.navigate(user.isadmin ? ['/applications'] : ['/applications'])
+          this.router.navigate(user.isadmin ? ['/admins/applications'] : ['/admins/applications'])
         },
         error: (e) => this.error = e.error.Message
       })

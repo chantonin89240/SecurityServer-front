@@ -15,7 +15,6 @@ export class AuthenticateService {
   constructor(private _httpClient: HttpClient) { }
   
   login(login: Login): Observable<userAuthenticate> {
-    JSON.stringify(login)
     
     return this._httpClient.post<userAuthenticate>(`${this.baseUrl}auth?`, login)
       .pipe(map(user => {

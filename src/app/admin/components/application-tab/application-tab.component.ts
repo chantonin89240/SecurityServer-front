@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Application } from '../../../models/application.interface';
 
@@ -10,6 +10,5 @@ import { Application } from '../../../models/application.interface';
 export class ApplicationTabComponent {
 
   @Input() applications!: Application[]
-  //@Input() applications$! : Observable<Application[]>
-
+  @Output() delete = new EventEmitter()
 }

@@ -8,7 +8,7 @@
             <span class="container_right_subtitle_orange">Login </span>
             <span class="container_right_subtitle_text">Your account</span>
         </label>
-        <form [formGroup]="parentForm" class="container_right_form" autocomplete="off">
+        <form [formGroup]="parentForm" class="container_right_form" (ngSubmit)="onSubmit()" autocomplete="off">
             <app-input [parentForm]="parentForm" name="email" type="text" placeholder="Email"></app-input>
             <div *ngIf="submitted && formControls['email'].errors">
                 <span class="container_right_form_error" *ngIf="formControls['email'].errors['required']">Email required</span>
@@ -18,7 +18,7 @@
             <div *ngIf="submitted && formControls['password'].errors">
                 <span class="container_right_form_error" *ngIf="formControls['password'].errors['required']">Password required</span>
             </div>
-            <app-button (click)="onSubmit()" text="Login"></app-button>
+            <app-button text="Login"></app-button>
             <div *ngIf="error">
                 <span class="container_right_form_error">{{error}}</span>
             </div>

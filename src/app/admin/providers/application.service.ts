@@ -18,11 +18,12 @@ export class ApplicationService {
   }
 
   post(application: Application) {
-    
-    console.log(JSON.stringify(application))
 
-    this._httpClient.post<any>(`${this.baseUrl}CreateApplication?`, JSON.stringify(application)).subscribe(data => {
-      
+    this._httpClient.post<any>(`${this.baseUrl}CreateApplication?`, application).subscribe(data => {
     })
+  }
+
+  delete(id: number) {
+    
   }
 }

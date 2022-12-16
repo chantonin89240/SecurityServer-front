@@ -17,4 +17,9 @@ export class ApplicationHomeComponent implements OnInit {
   ngOnInit(): void {
     this.applications$ = this.applicationService.get()
   }
+
+  delete() {
+    console.log('delete')
+    this.applicationService.delete(0)
+  }
 }
