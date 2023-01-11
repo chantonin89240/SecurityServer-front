@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { Application } from '../../../models/application.interface';
 import { ApplicationService } from '../../providers/application.service';
 
@@ -18,8 +18,17 @@ export class ApplicationHomeComponent implements OnInit {
     this.applications$ = this.applicationService.get()
   }
 
-  delete() {
-    console.log('delete')
-    this.applicationService.delete(0)
+  delete(event$: any) {
+    this.applicationService.delete(event$.id).subscribe(response => {
+      if(response) {
+        this.applications$ = this.applications$.pipe(map((apps) => {
+          return apps.filter(app => app.id !== event$.id)
+        }))
+      }
+      else {
+        //TODO bandeau erreur
+      }
+
+    })
   }
 }

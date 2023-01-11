@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms'
+import { Router } from '@angular/router';
 import { Application } from 'src/app/models/application.interface';
 import { ApplicationService } from '../../providers/application.service';
 
@@ -13,7 +14,9 @@ export class ApplicationEditComponent implements OnInit {
   parentForm: FormGroup
   application : Application
 
-  constructor(private formBuilder: FormBuilder, private applicationService: ApplicationService) {
+  constructor(private formBuilder: FormBuilder
+    ,private applicationService: ApplicationService
+    ,private router: Router) {
     
   }
 
@@ -27,11 +30,16 @@ export class ApplicationEditComponent implements OnInit {
 
   onSubmit() {
     this.application = {
+      id: 0,
       name: this.parentForm.value.name,
       url: this.parentForm.value.url,
       description: this.parentForm.value.description,
     }
 
-    this.applicationService.post(this.application)
+    this.applicationService.post(this.application).subscribe(() => {
+      this.router.navigate(['/admins/applications'])
+    })
+
+    
   }
 }

@@ -14,16 +14,15 @@ export class ApplicationService {
   constructor(private _httpClient: HttpClient) { }
   
   get(): Observable<Application[]> {
-    return this._httpClient.get<Application[]>(`${this.baseUrl}GetApplications?`)
+    return this._httpClient.get<Application[]>(`${this.baseUrl}application/get?`)
   }
 
   post(application: Application) {
 
-    this._httpClient.post<any>(`${this.baseUrl}CreateApplication?`, application).subscribe(data => {
-    })
+    return this._httpClient.post<any>(`${this.baseUrl}application/create?`, application)
   }
 
   delete(id: number) {
-    
+    return this._httpClient.delete<any>(`${this.baseUrl}application/${id}`)
   }
 }
