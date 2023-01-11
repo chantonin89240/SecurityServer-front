@@ -34,6 +34,7 @@ export class ApplicationEditComponent implements OnInit {
       name: this.parentForm.value.name,
       url: this.parentForm.value.url,
       description: this.parentForm.value.description,
+      clientSecret: null
     }
 
     this.applicationService.post(this.application).subscribe(() => {

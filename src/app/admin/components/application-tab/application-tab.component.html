@@ -9,7 +9,7 @@
             <td>{{application.name}}</td>
             <td><a href={{application.url}}>{{application.url}}</a></td>
             <td>{{application.description}}</td>
-            <td><div class="edit"></div></td>
+            <td><div class="edit" routerLink="/admins/applications/fiche/{{application.id}}"></div></td>
             <td><div class="delete" (click)="delete.emit({id:application.id})"></div></td>
         </tr>
        

@@ -17,6 +17,10 @@ export class ApplicationService {
     return this._httpClient.get<Application[]>(`${this.baseUrl}application/get?`)
   }
 
+  getById(id: number): Observable<Application> {
+    return this._httpClient.get<Application>(`${this.baseUrl}application/get/${id}?`)
+  }
+
   post(application: Application) {
 
     return this._httpClient.post<any>(`${this.baseUrl}application/create?`, application)

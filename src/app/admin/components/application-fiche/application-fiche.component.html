@@ -1,0 +1,42 @@
+<app-toolbar></app-toolbar>
+<ng-container *ngIf="application$ | async as application">
+    <div class="application-fiche">
+        <label class="application-fiche_text">{{application.name}}</label>
+        <div class="application-fiche_onglet">
+            <div class="application-fiche_onglet_header">
+                <label class="application-fiche_onglet_header_title">Informations générales</label>
+                <div class="edit" (click)="edit()"></div>
+            </div>
+            <div class="application-fiche_onglet_body">
+                <div class="application-fiche_onglet_body_double">
+                    <div class="application-fiche_onglet_body_single">
+                        <span class="application-fiche_onglet_body_title">Name :</span>
+                        <span class="application-fiche_onglet_body_info">{{application.name}}</span>
+                    </div>
+                    <div class="application-fiche_onglet_body_single">
+                        <span class="application-fiche_onglet_body_title">Client Secret :</span>
+                        <span class="application-fiche_onglet_body_info">{{application.clientSecret}}</span>
+                    </div>
+                </div>
+                <div class="application-fiche_onglet_body_single">
+                    <span class="application-fiche_onglet_body_title">Url :</span>
+                    <span class="application-fiche_onglet_body_info wrap"><a href={{application.url}}>{{application.url}}</a></span>
+                </div>
+                <div class="application-fiche_onglet_body_single">
+                    <span class="application-fiche_onglet_body_title">Description :</span>
+                    <span class="application-fiche_onglet_body_info">{{application.description}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="application-fiche_onglet">
+            <div class="application-fiche_onglet_header">
+                <label class="application-fiche_onglet_header_title">Users</label>
+            </div>
+            <div class="application-fiche_onglet_body">
+                <table>
+
+                </table>
+            </div>
+        </div>
+    </div>
+</ng-container>
