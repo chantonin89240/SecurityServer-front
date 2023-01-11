@@ -10,14 +10,13 @@ steps:
     versionSpec : '18.x'
   displayName : 'Install Node.js'
 
-  - script : 
+- script :
     npm install -g @angular/cli
-    npm install 
+    npm install
     npm run build
   displayName : 'npm install and build'
 
-  - task : QodanaScan@2022
-  - task : PublishPipelineArtifact@1
+- task : PublishPipelineArtifact@1
   inputs : 
     targetPath : '$(Build.SourcesDirectory')/dist'
     artifact : 'dist'
