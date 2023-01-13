@@ -4,7 +4,7 @@
         <label class="application-fiche_text">{{application.name}}</label>
         <div class="application-fiche_onglet">
             <div class="application-fiche_onglet_header">
-                <label class="application-fiche_onglet_header_title">Informations générales</label>
+                <label class="application-fiche_onglet_header_title">General information</label>
                 <div class="edit" (click)="edit()"></div>
             </div>
             <div class="application-fiche_onglet_body">
@@ -33,9 +33,39 @@
                 <label class="application-fiche_onglet_header_title">Users</label>
             </div>
             <div class="application-fiche_onglet_body">
-                <table>
-
-                </table>
+                <div class="application-fiche_onglet_body_double">
+                    <div class="application-fiche_onglet_body_single">
+                        <table class="application-fiche_onglet_body_table">
+                            <thead class="application-fiche_onglet_body_table_head">
+                                <tr class="application-fiche_onglet_body_table_head_tr">
+                                    <th>Firstname</th>
+                                    <th>Lastname</th>
+                                    <th>Email</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody class="application-fiche_onglet_body_table_body">
+                                <tr *ngFor="let user of application.users" class="application-fiche_onglet_body_table_body_tr">
+                                    <td>{{user.firstname}}</td>
+                                    <td>{{user.lastname}}</td>
+                                    <td>{{user.email}}</td>
+                                    <td><div class="delete" (click)="delete()"></div></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="application-fiche_onglet_body_single">
+                        <ng-container *ngIf="users$ | async as users">
+                            <div (change)="onSortChange($event)">
+                                <input list="users" />
+                                <datalist id="users" >
+                                    <option *ngFor="let user of users">{{user.email}}</option>
+                                </datalist>
+                            </div>
+                            <span (click)="addUser()">Add</span>
+                        </ng-container>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

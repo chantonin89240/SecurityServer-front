@@ -2,7 +2,6 @@
     display: flex;
     flex-direction: column;
     padding: 2% 8% 0 8%;
-    height: calc(100vh - 100px);
 
     &_text {
         font-size: 48px;
@@ -46,14 +45,53 @@
 
             &_title {
                 font-weight: bold;
-                width: 15%;
+                width: 22%;
                 text-align: end;
                 padding-right: 1%;
+                font-size: 20px;
             }
 
             &_info {
                 width: 80%;
-                
+                font-size: 20px;
+
+            }
+
+            &_table {
+                padding-block: 1%;
+                width: 100%;
+                border-collapse: collapse;
+
+                &_head {
+                    text-align: left;
+                    font-size: 20px;
+
+                    &_tr {
+
+                        :nth-child(n) {
+                            border-bottom: 1px solid black;
+                        }
+
+                        :nth-child(1) {
+                            width: 23%;
+                        }
+
+                        :nth-child(2) {
+                            width: 23%;
+                        }
+
+                        :nth-child(3) {
+                            width: 50%;
+                        }
+
+                    }
+                }
+
+                &_body {
+                    text-align: start;
+                    font-size: 20px;
+
+                }
             }
         }
     }
@@ -72,4 +110,12 @@
     cursor: pointer;
     height: 19px;
     width: 19px;
+}
+
+.delete {
+    background-image: url('../../../../assets/delete.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    height: 19px;
 }

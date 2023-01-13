@@ -25,10 +25,6 @@ export class ApplicationHomeComponent implements OnInit {
           return apps.filter(app => app.id !== event$.id)
         }))
       }
-      else {
-        //TODO bandeau erreur
-      }
-
     })
   }
 }

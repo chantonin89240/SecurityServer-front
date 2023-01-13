@@ -7,6 +7,7 @@ import { ApplicationHomeComponent } from './components/application-home/applicat
 const routes: Routes = [
   {path: 'applications', component: ApplicationHomeComponent},
   {path: 'applications/edit', component: ApplicationEditComponent},
+  {path: 'applications/edit/:id', component: ApplicationEditComponent},
   {path: 'applications/fiche/:id', component: ApplicationFicheComponent}
 ];
 

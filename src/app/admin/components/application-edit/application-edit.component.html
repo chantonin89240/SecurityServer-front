@@ -1,13 +1,31 @@
 <app-toolbar></app-toolbar>
-<div class="application-edit">
-    <span class="application-edit_text">Create application</span>
-    <form [formGroup]="parentForm" class="application-edit_form" (ngSubmit)="onSubmit()">
-        <app-input class="application-edit_form_input" [parentForm]="parentForm" name="name" type="text" placeholder="Name"></app-input>
-        <app-input class="application-edit_form_input" [parentForm]="parentForm" name="url" type="text" placeholder="Url"></app-input>
-        <app-text-area class="application-edit_form_textarea" [parentForm]="parentForm" name="description" placeholder="Write a description..."></app-text-area>
-        <div class="application-edit_form_buttons">
-            <app-button text="Create"></app-button>
-            <app-button routerLink="/admins/applications" text="Back"></app-button>
+<ng-container *ngIf="!create; else edit">
+    <ng-container *ngIf="application$ | async">
+        <div class="application-edit">
+            <span class="application-edit_text">{{title}}</span>
+            <form [formGroup]="parentForm" class="application-edit_form" (ngSubmit)="onSubmit()">
+                <app-input class="application-edit_form_input" [parentForm]="parentForm" name="name" type="text" placeholder="Name"></app-input>
+                <app-input class="application-edit_form_input" [parentForm]="parentForm" name="url" type="text" placeholder="Url"></app-input>
+                <app-text-area class="application-edit_form_textarea" [parentForm]="parentForm" name="description" placeholder="Write a description..."></app-text-area>
+                <div class="application-edit_form_buttons">
+                    <app-button text={{titleBtn}}></app-button>
+                    <app-button routerLink="/admins/applications" text="Back"></app-button>
+                </div>
+            </form>
         </div>
-    </form>
-</div>
+    </ng-container>
+</ng-container>
+<ng-template #edit>
+    <div class="application-edit">
+        <span class="application-edit_text">{{title}}</span>
+        <form [formGroup]="parentForm" class="application-edit_form" (ngSubmit)="onSubmit()">
+            <app-input class="application-edit_form_input" [parentForm]="parentForm" name="name" type="text" placeholder="Name"></app-input>
+            <app-input class="application-edit_form_input" [parentForm]="parentForm" name="url" type="text" placeholder="Url"></app-input>
+            <app-text-area class="application-edit_form_textarea" [parentForm]="parentForm" name="description" placeholder="Write a description..."></app-text-area>
+            <div class="application-edit_form_buttons">
+                <app-button text={{titleBtn}}></app-button>
+                <app-button routerLink="/admins/applications" text="Back"></app-button>
+            </div>
+        </form>
+    </div>
+</ng-template>
