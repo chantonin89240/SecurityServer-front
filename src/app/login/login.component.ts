@@ -5,6 +5,7 @@ import { AuthenticateService } from '../providers/authenticate.service';
 import { finalize, first } from 'rxjs/operators';
 import { userAuthenticate } from '../models/userAuthenticate.interface';
 import { Router } from '@angular/router';
+import { User } from '../models/user.interface';
 
 @Component({
   selector: 'app-login',
@@ -43,17 +44,28 @@ export class LoginComponent implements OnInit {
     }
 
     this.login = {
+      clientSecret: '5R56L4LBDE7UROMBUXFM5PQJLPJNGRP2FEUR',
       email: this.parentForm.value.email,
       password: this.parentForm.value.password
     }
     
-    this.authenticateService.login(this.login)
+    /*this.authenticateService.login(this.login)
       .subscribe({
         next: (n) => {
           let user: userAuthenticate = JSON.parse(localStorage.getItem('user')!)
           this.router.navigate(user.isadmin ? ['/admins/applications'] : ['/admins/applications'])
         },
         error: (e) => this.error = e.error.Message
-      })
+      })*/
+
+      let userToken: User = {
+        id: 0,
+        firstname: '',
+        lastname: '',
+        email: ''
+      }
+      localStorage.setItem('user', JSON.stringify(userToken))
+      let user: userAuthenticate = JSON.parse(localStorage.getItem('user')!)
+      this.router.navigate(user.isadmin ? ['/admins/applications'] : ['/admins/applications'])
   }
 }

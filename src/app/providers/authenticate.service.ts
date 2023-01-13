@@ -15,8 +15,8 @@ export class AuthenticateService {
   constructor(private _httpClient: HttpClient) { }
   
   login(login: Login): Observable<userAuthenticate> {
-    
-    return this._httpClient.post<userAuthenticate>(`${this.baseUrl}auth?`, login)
+    const headers = new HttpHeaders({'Access-Control-Allow-Origin':'*'});
+    return this._httpClient.post<userAuthenticate>(`${this.baseUrl}auth?`, login, {headers: headers})
       .pipe(map(user => {
         if(user && user.token) {
           localStorage.setItem('user', JSON.stringify(user))
