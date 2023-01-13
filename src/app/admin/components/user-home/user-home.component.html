@@ -1,0 +1,13 @@
+<app-toolbar></app-toolbar>
+<div class="user">
+    <span class="user_text">All users</span>
+    <ng-container *ngIf="users$ | async as users; else loading">
+        <app-user-tab class="user_tab" [users]="users"></app-user-tab>
+        <app-button routerLink="#" class="user_button" text="Create new user"></app-button>
+    </ng-container>
+    <ng-template #loading>
+        <div class="user_loading">
+            <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+        </div>
+    </ng-template>
+</div>

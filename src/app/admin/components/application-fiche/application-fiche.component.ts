@@ -4,6 +4,7 @@ import { map, Observable, withLatestFrom } from 'rxjs';
 import { Application } from 'src/app/models/application.interface';
 import { User } from 'src/app/models/user.interface';
 import { ApplicationService } from '../../providers/application.service';
+import { UserService } from '../../providers/user.service';
 
 @Component({
   selector: 'app-application-fiche',
@@ -19,7 +20,8 @@ export class ApplicationFicheComponent implements OnInit {
 
   constructor(private route: ActivatedRoute
     ,private router: Router
-    ,private applicationService: ApplicationService) {
+    ,private applicationService: ApplicationService
+    ,private userService: UserService) {
     
   }
 
@@ -29,7 +31,7 @@ export class ApplicationFicheComponent implements OnInit {
 
       this.id = params['id']
 
-      this.users$ = this.applicationService.getUsers().pipe(withLatestFrom(this.application$),map(([users, app]) => {
+      this.users$ = this.userService.get().pipe(withLatestFrom(this.application$),map(([users, app]) => {
         return users.filter(user => !app.users?.find(u => u.id === user.id))
       }))
 

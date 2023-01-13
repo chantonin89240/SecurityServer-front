@@ -1,0 +1,16 @@
+<table class="table">
+    <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Email</th>
+        <th colspan="2">Actions</th>
+    </tr>
+    <tr *ngFor="let user of users">
+        <td>{{user.firstname}}</td>
+        <td>{{user.lastname}}</td>
+        <td>{{user.email}}</td>
+        <td><div class="eye" ></div></td>
+        <td><div class="delete" ></div></td>
+    </tr>
+   
+</table>

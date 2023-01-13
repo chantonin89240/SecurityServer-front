@@ -9,6 +9,8 @@ import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { SharedModule } from '../shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ApplicationFicheComponent } from './components/application-fiche/application-fiche.component';
+import { UserHomeComponent } from './components/user-home/user-home.component';
+import { UserTabComponent } from './components/user-tab/user-tab.component';
 
 
 @NgModule({
@@ -17,7 +19,9 @@ import { ApplicationFicheComponent } from './components/application-fiche/applic
     ApplicationEditComponent,
     ApplicationTabComponent,
     ToolbarComponent,
-    ApplicationFicheComponent
+    ApplicationFicheComponent,
+    UserHomeComponent,
+    UserTabComponent
   ],
   imports: [
     CommonModule,

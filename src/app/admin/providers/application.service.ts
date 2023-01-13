@@ -33,8 +33,4 @@ export class ApplicationService {
   delete(id: number) {
     return this._httpClient.delete<any>(`${this.baseUrl}application/${id}`)
   }
-
-  getUsers() {
-    return this._httpClient.get<User[]>(`${this.baseUrl}users?`)
-  }
 }
