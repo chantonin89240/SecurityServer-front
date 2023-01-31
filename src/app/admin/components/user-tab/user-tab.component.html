@@ -5,7 +5,7 @@
         <th>Email</th>
         <th colspan="2">Actions</th>
     </tr>
-    <tr *ngFor="let user of users">
+    <tr *ngFor="let user of users" appTabHover>
         <td>{{user.firstname}}</td>
         <td>{{user.lastname}}</td>
         <td>{{user.email}}</td>

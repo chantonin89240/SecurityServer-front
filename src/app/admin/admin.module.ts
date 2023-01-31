@@ -11,6 +11,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ApplicationFicheComponent } from './components/application-fiche/application-fiche.component';
 import { UserHomeComponent } from './components/user-home/user-home.component';
 import { UserTabComponent } from './components/user-tab/user-tab.component';
+import { TabHoverDirective } from './directive/tab-hover.directive';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { UserTabComponent } from './components/user-tab/user-tab.component';
     ToolbarComponent,
     ApplicationFicheComponent,
     UserHomeComponent,
-    UserTabComponent
+    UserTabComponent,
+    TabHoverDirective
   ],
   imports: [
     CommonModule,
