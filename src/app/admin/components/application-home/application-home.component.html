@@ -23,7 +23,10 @@
         <form class="application_modal_body" [formGroup]="parentForm">
             <div class="application_modal_body_info">
                 <span class="application_modal_body_info_text">Confirm the application's name :</span>
-                <app-input class="application_modal_body_info_input" [parentForm]="parentForm" name="appName" type="text"></app-input>
+                <div>
+                    <app-input class="application_modal_body_info_input" [parentForm]="parentForm" name="appName" type="text"></app-input>
+                    <span class="application_modal_body_info_input_error" [style.display]="error">Incorrect name</span>
+                </div>
             </div>
             <div class="application_modal_body_button">
                 <button class="application_modal_body_button_yes" (click)="closeDeleteModal()">Cancel</button>

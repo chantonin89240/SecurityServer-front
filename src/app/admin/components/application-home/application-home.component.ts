@@ -13,6 +13,7 @@ export class ApplicationHomeComponent implements OnInit {
 
   applications$: Observable<Application[]>
   deleteModalStyle: string
+  error: string
   parentForm: FormGroup
   event$: any
 
@@ -21,6 +22,7 @@ export class ApplicationHomeComponent implements OnInit {
   ngOnInit(): void {
     this.applications$ = this.applicationService.get()
     this.deleteModalStyle = 'none'
+    this.error = 'none'
 
     this.parentForm = this.formBuilder.group({
       appName: ['', Validators.required],
@@ -36,18 +38,25 @@ export class ApplicationHomeComponent implements OnInit {
           }))
 
           this.deleteModalStyle = 'none'
+          this.error = 'none'
+          this.parentForm.patchValue({appName:''})
         }
       })
+    }
+    else {
+      this.error = 'block'
     }
   }
 
   openDeleteModal(event$: any) {
     this.deleteModalStyle = 'block'
+    this.error = 'none'
     this.event$ = event$
   }
 
   closeDeleteModal() {
     this.deleteModalStyle = 'none'
-    this.parentForm.value.appName = '';
+    this.error = 'none'
+    this.parentForm.patchValue({appName:''})
   }
 }

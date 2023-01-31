@@ -76,6 +76,12 @@
           &_input {
             font-size: 20px;
             width: 40%;
+
+            &_error {
+              color: red;
+              font-weight: bold;
+              display: none;
+            }
           }
         }
 
