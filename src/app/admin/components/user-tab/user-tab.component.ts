@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { User } from 'src/app/models/user.interface';
 
 @Component({
@@ -9,5 +9,6 @@ import { User } from 'src/app/models/user.interface';
 export class UserTabComponent {
   
   @Input() users!: User[]
+  @Output() delete = new EventEmitter()
 
 }

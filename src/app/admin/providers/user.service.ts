@@ -15,4 +15,8 @@ export class UserService {
   get() {
     return this._httpClient.get<User[]>(`${this.baseUrl}users?`)
   }
+
+  delete(id: number) {
+    return this._httpClient.delete<any>(`${this.baseUrl}user/${id}`)
+  }
 }
