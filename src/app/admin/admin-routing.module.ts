@@ -6,11 +6,16 @@ import { ApplicationHomeComponent } from './components/application-home/applicat
 import { UserHomeComponent } from './components/user-home/user-home.component';
 
 const routes: Routes = [
-  {path: 'applications', component: ApplicationHomeComponent},
-  {path: 'applications/edit', component: ApplicationEditComponent},
-  {path: 'applications/edit/:id', component: ApplicationEditComponent},
-  {path: 'applications/fiche/:id', component: ApplicationFicheComponent},
-  {path: 'users', component: UserHomeComponent}
+  {
+    path: '',
+    children: [
+      {path: 'applications', component: ApplicationHomeComponent},
+      {path: 'applications/edit', component: ApplicationEditComponent},
+      {path: 'applications/edit/:id', component: ApplicationEditComponent},
+      {path: 'applications/fiche/:id', component: ApplicationFicheComponent},
+      {path: 'users', component: UserHomeComponent}
+    ]
+  }
 ];
 
 @NgModule({
