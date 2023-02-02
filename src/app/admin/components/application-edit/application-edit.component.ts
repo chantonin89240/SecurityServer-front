@@ -13,7 +13,6 @@ import { ApplicationService } from '../../providers/application.service';
 export class ApplicationEditComponent implements OnInit {
 
   parentForm: FormGroup
-  application : Application
   application$: Observable<Application>
   title: string
   titleBtn: string
@@ -64,7 +63,7 @@ export class ApplicationEditComponent implements OnInit {
   }
 
   onSubmit() {
-    this.application = {
+    let application = {
       id: this.parentForm.value.id,
       name: this.parentForm.value.name,
       url: this.parentForm.value.url,
@@ -73,14 +72,14 @@ export class ApplicationEditComponent implements OnInit {
       users: null
     }
 
-    if(this.application.id === 0) {
-      this.applicationService.post(this.application).subscribe(() => {
+    if(application.id === 0) {
+      this.applicationService.post(application).subscribe(() => {
         this.router.navigate(['/admins/applications'])
       })
     }
     else {
-      console.log(this.application)
-      this.applicationService.update(this.application).subscribe(() => {
+      console.log(application)
+      this.applicationService.update(application).subscribe(() => {
         this.router.navigate(['/admins/applications'])
       })
     }

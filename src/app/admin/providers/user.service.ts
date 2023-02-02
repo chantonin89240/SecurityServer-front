@@ -13,7 +13,15 @@ export class UserService {
   constructor(private _httpClient: HttpClient) { }
 
   get() {
-    return this._httpClient.get<User[]>(`${this.baseUrl}users?`)
+    return this._httpClient.get<User[]>(`${this.baseUrl}users`)
+  }
+
+  getById(id: number) {
+    return this._httpClient.get<User>(`${this.baseUrl}user/${id}`)
+  }
+
+  post(user: User) {
+    return this._httpClient.post<any>(`${this.baseUrl}user/create`, user)
   }
 
   delete(id: number) {

@@ -3,7 +3,7 @@
     <span class="user_text">All users</span>
     <ng-container *ngIf="users$ | async as users; else loading">
         <app-user-tab class="user_tab" [users]="users" (delete)="openDeleteModal($event)" ></app-user-tab>
-        <app-button routerLink="#" class="user_button" text="Create new user"></app-button>
+        <app-button routerLink="/admins/users/edit" class="user_button" text="Create new user"></app-button>
     </ng-container>
     <ng-template #loading>
         <div class="user_loading">

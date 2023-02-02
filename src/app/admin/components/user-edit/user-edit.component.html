@@ -1,0 +1,39 @@
+<app-toolbar></app-toolbar>
+<ng-container *ngIf="!create; else edit">
+    <ng-container *ngIf="user$ | async">
+        <div class="user-edit">
+            <span class="user-edit_text">{{title}}</span>
+            <form [formGroup]="parentForm" class="user-edit_form" (ngSubmit)="onSubmit()">
+                <div class="user-edit_form_avatar">
+                    <img class="user-edit_form_avatar_img" src="{{parentForm.value.url}}"/>
+                    <app-input class="user-edit_form_avatar_url" [parentForm]="parentForm" name="url" placeholder="Link for the avatar"></app-input>
+                </div>
+                <app-input class="user-edit_form_firstname" [parentForm]="parentForm" name="firstName" placeholder="First name"></app-input>
+                <app-input class="user-edit_form_lastname" [parentForm]="parentForm" name="lastName" placeholder="Last name"></app-input>
+                <app-input class="user-edit_form_email" [parentForm]="parentForm" name="email" placeholder="Email"></app-input>
+                <div class="user-edit_form_buttons">
+                    <app-button text={{titleBtn}}></app-button>
+                    <app-button routerLink="/admins/users" text="Back"></app-button>
+                </div>
+            </form>
+        </div>
+    </ng-container>
+</ng-container>
+<ng-template #edit>
+    <div class="user-edit">
+        <span class="user-edit_text">{{title}}</span>
+        <form [formGroup]="parentForm" class="user-edit_form" (ngSubmit)="onSubmit()">
+            <div class="user-edit_form_avatar">
+                <img class="user-edit_form_avatar_img" src="https://chaire-eti.org/wp-content/uploads/2018/01/avatar-homme.png"/>
+                <app-input class="user-edit_form_avatar_url" [parentForm]="parentForm" name="url" placeholder="Link for the avatar"></app-input>
+            </div>
+            <app-input class="user-edit_form_firstname" [parentForm]="parentForm" name="firstName" placeholder="First name"></app-input>
+            <app-input class="user-edit_form_lastname" [parentForm]="parentForm" name="lastName" placeholder="Last name"></app-input>
+            <app-input class="user-edit_form_email" [parentForm]="parentForm" name="email" placeholder="Email"></app-input>
+            <div class="user-edit_form_buttons">
+                <app-button text={{titleBtn}}></app-button>
+                <app-button routerLink="/admins/users" text="Back"></app-button>
+            </div>
+        </form>
+    </div>
+</ng-template>

@@ -12,6 +12,7 @@ import { ApplicationFicheComponent } from './components/application-fiche/applic
 import { UserHomeComponent } from './components/user-home/user-home.component';
 import { UserTabComponent } from './components/user-tab/user-tab.component';
 import { TabHoverDirective } from './directive/tab-hover.directive';
+import { UserEditComponent } from './components/user-edit/user-edit.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { TabHoverDirective } from './directive/tab-hover.directive';
     ApplicationFicheComponent,
     UserHomeComponent,
     UserTabComponent,
-    TabHoverDirective
+    TabHoverDirective,
+    UserEditComponent
   ],
   imports: [
     CommonModule,

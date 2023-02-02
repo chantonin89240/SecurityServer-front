@@ -62,7 +62,8 @@ export class LoginComponent implements OnInit {
         id: 0,
         firstname: '',
         lastname: '',
-        email: ''
+        email: '',
+        avatar: ''
       }
       localStorage.setItem('user', JSON.stringify(userToken))
       let user: userAuthenticate = JSON.parse(localStorage.getItem('user')!)
