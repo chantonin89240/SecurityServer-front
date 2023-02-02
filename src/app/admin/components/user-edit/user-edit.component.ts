@@ -58,7 +58,7 @@ export class UserEditComponent implements OnInit {
           firstName: ['', Validators.required],
           lastName: ['', Validators.required],
           email: ['', Validators.required],
-          url: ['', Validators.required]
+          url: ['https://chaire-eti.org/wp-content/uploads/2018/01/avatar-homme.png', Validators.required]
         })
       }
 
@@ -83,7 +83,10 @@ export class UserEditComponent implements OnInit {
       })
     }
     else {
-
+      console.log(user)
+      this.userService.update(user).subscribe(() => {
+        this.router.navigate(['/admins/users'])
+      })
     }
     
   }
