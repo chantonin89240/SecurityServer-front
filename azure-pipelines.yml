@@ -13,7 +13,7 @@ steps:
   displayName : 'npm install'
 
 - script :
-    npm run test
+    npm run test-headless
   displayName: 'npm test'
 
 - script :
