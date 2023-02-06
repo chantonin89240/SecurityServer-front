@@ -50,17 +50,14 @@ export class LoginComponent implements OnInit {
       password: this.parentForm.value.password
     }
 
-    console.log(this.login)
     
     this.authenticateService.login(this.login)
       .subscribe({
         next: (n) => {
-          console.log(n)
 
           this.authenticateService.getToken(n.codeGrant)
             .subscribe({
               next: (n) => {
-                console.log(n)
                 this.router.navigate(['/admins/applications'])
 
               },
