@@ -26,7 +26,7 @@ export class AuthenticateService {
   }
 
   getToken(codeGrant: string) {
-    return this._httpClient.post(`${this.baseUrl}GetAcces`, {codeGrant: codeGrant}).pipe(map(token => {
+    return this._httpClient.post(`${this.baseUrl}GetAccess`, {codeGrant: codeGrant}).pipe(map(token => {
       if(token) {
         localStorage.setItem('token', JSON.stringify(token))
       }

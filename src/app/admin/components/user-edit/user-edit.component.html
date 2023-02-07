@@ -24,7 +24,7 @@
         <span class="user-edit_text">{{title}}</span>
         <form [formGroup]="parentForm" class="user-edit_form" (ngSubmit)="onSubmit()">
             <div class="user-edit_form_avatar">
-                <img class="user-edit_form_avatar_img" src="{{parentForm.value.url}}"/>
+                <img class="user-edit_form_avatar_img" src="{{parentForm.value.url ? parentForm.value.url : 'https://chaire-eti.org/wp-content/uploads/2018/01/avatar-homme.png'}}"/>
                 <app-input class="user-edit_form_avatar_url" [parentForm]="parentForm" name="url" placeholder="Link for the avatar"></app-input>
             </div>
             <app-input class="user-edit_form_firstname" [parentForm]="parentForm" name="firstName" placeholder="First name"></app-input>

@@ -58,8 +58,7 @@ export class LoginComponent implements OnInit {
           this.authenticateService.getToken(n.codeGrant)
             .subscribe({
               next: (n) => {
-                this.router.navigate(['/admins/applications'])
-
+                this.router.navigateByUrl('/admins/applications')
               },
               error: (e) => this.error = e.error.Message
             })

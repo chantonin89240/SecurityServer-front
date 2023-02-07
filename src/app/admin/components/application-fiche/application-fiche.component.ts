@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { map, Observable, withLatestFrom } from 'rxjs';
 import { Application } from 'src/app/models/application.interface';
+import { Role } from 'src/app/models/role.interface';
 import { User } from 'src/app/models/user.interface';
 import { ApplicationService } from '../../providers/application.service';
 import { UserService } from '../../providers/user.service';
@@ -17,6 +18,7 @@ export class ApplicationFicheComponent implements OnInit {
   id: number
   users$: Observable<User[]>
   userEmail: string
+  roles$: Observable<Role[]>
 
   constructor(private route: ActivatedRoute
     ,private router: Router
@@ -31,6 +33,7 @@ export class ApplicationFicheComponent implements OnInit {
 
       this.id = params['id']
 
+      this.roles$ = this.applicationService.getRoles()
       this.users$ = this.userService.get().pipe(withLatestFrom(this.application$),map(([users, app]) => {
         return users.filter(user => !app.users?.find(u => u.id === user.id))
       }))

@@ -4,6 +4,7 @@ import { Application } from '../../models/application.interface';
 import { Observable } from 'rxjs'
 import { environment } from 'src/environments/environment';
 import { User } from 'src/app/models/user.interface';
+import { Role } from 'src/app/models/role.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -32,5 +33,9 @@ export class ApplicationService {
 
   delete(id: number) {
     return this._httpClient.delete<any>(`${this.baseUrl}application/${id}`)
+  }
+
+  getRoles() {
+    return this._httpClient.get<Role[]>(`${this.baseUrl}roles`)
   }
 }

@@ -30,6 +30,27 @@
         </div>
         <div class="application-fiche_onglet">
             <div class="application-fiche_onglet_header">
+                <label class="application-fiche_onglet_header_title">Roles</label>
+            </div>
+            <div class="application-fiche_onglet_body">
+                <div class="application-fiche_onglet_body_single">
+                    <ng-container *ngIf="roles$ | async as roles">
+                        <div >
+                            <input list="roles" />
+                            <datalist id="roles" >
+                                <option *ngFor="let role of roles" >{{role.label}}</option>
+                            </datalist>
+                        </div>
+                        <span (click)="addUser()">Add</span>
+                    </ng-container>
+                </div>
+                <div class="application-fiche_onglet_body_single">
+                    <span>Roles : </span>
+                </div>
+            </div>
+        </div>
+        <div class="application-fiche_onglet">
+            <div class="application-fiche_onglet_header">
                 <label class="application-fiche_onglet_header_title">Users</label>
             </div>
             <div class="application-fiche_onglet_body">
