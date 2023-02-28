@@ -36,16 +36,20 @@
                 <div class="application-fiche_onglet_body_single">
                     <ng-container *ngIf="roles$ | async as roles">
                         <div >
-                            <input list="roles" />
+                            <input list="roles" (change)="onSortChangeRole($event)"/>
                             <datalist id="roles" >
-                                <option *ngFor="let role of roles" >{{role.label}}</option>
+                                <option *ngFor="let role of roles" value="{{role.id}}">{{role.label}}</option>
                             </datalist>
                         </div>
-                        <span (click)="addUser()">Add</span>
+                        <span (click)="addAppRole()">Add</span>
                     </ng-container>
                 </div>
                 <div class="application-fiche_onglet_body_single">
-                    <span>Roles : </span>
+                    <span>Roles : 
+                    <ng-container *ngIf="appRoles$ | async as appRoles">
+                        <span *ngFor="let appRole of appRoles" (click)="deleteAppRole(appRole.id)">{{appRole.label}}, </span>
+                    </ng-container>
+                    </span>
                 </div>
             </div>
         </div>

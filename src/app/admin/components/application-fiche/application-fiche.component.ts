@@ -19,6 +19,8 @@ export class ApplicationFicheComponent implements OnInit {
   users$: Observable<User[]>
   userEmail: string
   roles$: Observable<Role[]>
+  appRoles$: Observable<Role[]>
+  idAppRole: number
 
   constructor(private route: ActivatedRoute
     ,private router: Router
@@ -37,6 +39,7 @@ export class ApplicationFicheComponent implements OnInit {
       this.users$ = this.userService.get().pipe(withLatestFrom(this.application$),map(([users, app]) => {
         return users.filter(user => !app.users?.find(u => u.id === user.id))
       }))
+      this.appRoles$ = this.applicationService.getAppRoles(this.id)
 
     })
   }
@@ -63,5 +66,17 @@ export class ApplicationFicheComponent implements OnInit {
       console.log(app)
       this.applicationService.update(app)
     })
+  }
+
+  deleteAppRole(id: number) {
+    this.applicationService.deleteAppRole(this.id, id)
+  }
+
+  addAppRole() {
+    this.applicationService.addAppRole(this.id, this.idAppRole).subscribe()
+  }
+
+  onSortChangeRole($event:any) {
+    this.idAppRole = $event.target.value
   }
 }

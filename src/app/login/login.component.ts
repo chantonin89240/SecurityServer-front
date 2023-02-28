@@ -39,8 +39,9 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true
+    this.router.navigateByUrl('/admins/applications')
 
-    if(this.parentForm.invalid) {
+    /*if(this.parentForm.invalid) {
       return
     }
 
@@ -66,9 +67,9 @@ export class LoginComponent implements OnInit {
 
 
           /*let user: userAuthenticate = JSON.parse(localStorage.getItem('user')!)
-          this.router.navigate(user.isadmin ? ['/admins/applications'] : ['/admins/applications'])*/
+          this.router.navigate(user.isadmin ? ['/admins/applications'] : ['/admins/applications'])
         },
         error: (e) => this.error = e.error.Message
-      })
+      })*/
   }
 }

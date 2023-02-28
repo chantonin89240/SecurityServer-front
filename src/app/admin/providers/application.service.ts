@@ -38,4 +38,16 @@ export class ApplicationService {
   getRoles() {
     return this._httpClient.get<Role[]>(`${this.baseUrl}roles`)
   }
+
+  getAppRoles(id: number) {
+    return this._httpClient.get<Role[]>(`${this.baseUrl}rolesApp/${id}`)
+  }
+
+  deleteAppRole(idApp: number, idRole: number) {
+    //TODO function deleteAppRole
+  }
+
+  addAppRole(idApp: number, idRole: number) {
+    return this._httpClient.post<any>(`${this.baseUrl}role/add?`, {idApp: idApp, idRole: idRole})
+  }
 }
