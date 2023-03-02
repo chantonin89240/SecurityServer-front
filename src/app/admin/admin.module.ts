@@ -8,6 +8,11 @@ import { ApplicationTabComponent } from './components/application-tab/applicatio
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { SharedModule } from '../shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ApplicationFicheComponent } from './components/application-fiche/application-fiche.component';
+import { UserHomeComponent } from './components/user-home/user-home.component';
+import { UserTabComponent } from './components/user-tab/user-tab.component';
+import { TabHoverDirective } from './directive/tab-hover.directive';
+import { UserEditComponent } from './components/user-edit/user-edit.component';
 
 
 @NgModule({
@@ -15,7 +20,12 @@ import { ReactiveFormsModule } from '@angular/forms';
     ApplicationHomeComponent,
     ApplicationEditComponent,
     ApplicationTabComponent,
-    ToolbarComponent
+    ToolbarComponent,
+    ApplicationFicheComponent,
+    UserHomeComponent,
+    UserTabComponent,
+    TabHoverDirective,
+    UserEditComponent
   ],
   imports: [
     CommonModule,

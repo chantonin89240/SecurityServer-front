@@ -1,0 +1,16 @@
+<table class="table">
+    <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Email</th>
+        <th colspan="2">Actions</th>
+    </tr>
+    <tr *ngFor="let user of users" appTabHover>
+        <td>{{user.firstname}}</td>
+        <td>{{user.lastname}}</td>
+        <td>{{user.email}}</td>
+        <td><div class="eye" routerLink="/admins/users/edit/{{user.id}}"></div></td>
+        <td><div class="delete" (click)="delete.emit({id:user.id})"></div></td>
+    </tr>
+   
+</table>

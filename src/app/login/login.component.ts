@@ -2,9 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms'
 import { Login } from '../models/login.interface';
 import { AuthenticateService } from '../providers/authenticate.service';
-import { first } from 'rxjs/operators';
+import { finalize, first } from 'rxjs/operators';
 import { userAuthenticate } from '../models/userAuthenticate.interface';
 import { Router } from '@angular/router';
+import { User } from '../models/user.interface';
+import { LoginRedirect } from '../models/loginRedirect.interface';
 
 @Component({
   selector: 'app-login',
@@ -26,8 +28,8 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.parentForm = this.formBuilder.group({
-      email: ['cruddock1@usatoday.com', [Validators.required, Validators.email]],
-      password: ['032c18dcc62d13fcd8cfcac2f216fed57150565e', Validators.required]
+      email: ['jc@gmail.com', [Validators.required, Validators.email]],
+      password: ['LK97VBGUOL', Validators.required]
     })
   }
 
@@ -37,24 +39,37 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true
+    this.router.navigateByUrl('/admins/applications')
 
-    if(this.parentForm.invalid) {
+    /*if(this.parentForm.invalid) {
       return
     }
 
     this.login = {
+      clientSecret: '5R56L4LBDE7UROMBUXFM5PQJLPJNGRP2FEUR',
       email: this.parentForm.value.email,
       password: this.parentForm.value.password
     }
+
     
     this.authenticateService.login(this.login)
-      .pipe(first())
       .subscribe({
         next: (n) => {
-          let user: userAuthenticate = JSON.parse(localStorage.getItem('user')!)
-          this.router.navigate(user.isadmin ? ['/applications'] : ['/applications'])
+
+          this.authenticateService.getToken(n.codeGrant)
+            .subscribe({
+              next: (n) => {
+                this.router.navigateByUrl('/admins/applications')
+              },
+              error: (e) => this.error = e.error.Message
+            })
+          
+
+
+          /*let user: userAuthenticate = JSON.parse(localStorage.getItem('user')!)
+          this.router.navigate(user.isadmin ? ['/admins/applications'] : ['/admins/applications'])
         },
-        error: (e) => console.log(e)
-      })
+        error: (e) => this.error = e.error.Message
+      })*/
   }
 }

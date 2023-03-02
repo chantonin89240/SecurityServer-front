@@ -27,8 +27,122 @@
     }
 
     &_button {
-        padding: 4% 0 2% 2%;
+        margin-top: 4%;
+        padding: 0 0 2% 2%;
+        width: min-content;
     }
+
+    &_modal {
+      position: absolute;
+      left: 30%;
+      top: 28%;
+      width: 40%;
+      height: 30%;
+      background-color: #F6693C;
+      border-radius: 5px;
+      border: 2px solid #F6693C;
+
+      &_head {
+        height: 25%;
+        display: flex;
+        align-items: center;
+        padding-left: 2%;
+        
+        &_title {
+          font-size: 24px;
+          color: white;
+
+        }
+      }
+
+      &_body {
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        background-color: white;
+        height: 75%;
+
+        &_info {
+          height: 75%;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-evenly;
+          padding-inline: 1% ;
+          padding-block: 5%;
+
+          &_text {
+            font-size: 20px;
+            
+          }
+
+          &_input {
+            font-size: 20px;
+            width: 40%;
+
+            &_error {
+              color: red;
+              font-weight: bold;
+              display: none;
+            }
+          }
+        }
+
+        &_button {
+          display: flex;
+          flex-direction: row-reverse;
+          height: 25%;
+          align-items: center;
+          background-color: #F6693C;
+
+          button {
+            height: 70%;
+            width: 10%;
+            margin-inline: 1%;
+            color: white;
+            border-radius: 3px;
+            font-weight: bold;
+
+          }
+
+          button:active {
+            transform: translateY(1px);
+            box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.5);
+        
+          }
+
+          &_no {
+            background-color: rgb(0, 170, 0);
+            border: 0.5px solid rgb(0, 170, 0);
+
+          }
+
+          &_no:hover {
+            background-color: rgb(0, 130, 0);
+            border: 0.5px solid rgb(0, 130, 0);
+
+          }
+
+          &_yes {
+            background-color: red;
+            border: 0.5px solid red;
+
+          }
+
+          &_yes:hover {
+            background-color: rgb(210, 0, 0);
+            border: 0.5px solid rgb(210, 0, 0);
+
+          }
+        }
+      }
+    }
+}
+
+.grey_shade {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(224, 224, 224, 0.5);
 }
 
 .lds-ring {

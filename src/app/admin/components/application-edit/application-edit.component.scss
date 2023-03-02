@@ -12,6 +12,7 @@
     &_form {
         display: flex;
         flex-direction: column;
+        height: 100%;
 
         &_input {
             padding: 0 0 2% 2%;
@@ -31,6 +32,11 @@
                 align-self: flex-end;
                 padding: 5px;
             }
+        }
+
+        &_textarea {
+            margin: 1% 2% 3% 2%;
+            height: 30%;
         }
 
         &_buttons {

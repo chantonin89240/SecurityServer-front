@@ -1,0 +1,97 @@
+<app-toolbar></app-toolbar>
+<ng-container *ngIf="application$ | async as application">
+    <div class="application-fiche">
+        <label class="application-fiche_text">{{application.name}}</label>
+        <div class="application-fiche_onglet">
+            <div class="application-fiche_onglet_header">
+                <label class="application-fiche_onglet_header_title">General information</label>
+                <div class="edit" (click)="edit()"></div>
+            </div>
+            <div class="application-fiche_onglet_body">
+                <div class="application-fiche_onglet_body_double">
+                    <div class="application-fiche_onglet_body_single">
+                        <span class="application-fiche_onglet_body_title">Name :</span>
+                        <span class="application-fiche_onglet_body_info">{{application.name}}</span>
+                    </div>
+                    <div class="application-fiche_onglet_body_single">
+                        <span class="application-fiche_onglet_body_title">Client Secret :</span>
+                        <span class="application-fiche_onglet_body_info">{{application.clientSecret}}</span>
+                    </div>
+                </div>
+                <div class="application-fiche_onglet_body_single">
+                    <span class="application-fiche_onglet_body_title">Url :</span>
+                    <span class="application-fiche_onglet_body_info wrap"><a href={{application.url}}>{{application.url}}</a></span>
+                </div>
+                <div class="application-fiche_onglet_body_single">
+                    <span class="application-fiche_onglet_body_title">Description :</span>
+                    <span class="application-fiche_onglet_body_info">{{application.description}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="application-fiche_onglet">
+            <div class="application-fiche_onglet_header">
+                <label class="application-fiche_onglet_header_title">Roles</label>
+            </div>
+            <div class="application-fiche_onglet_body">
+                <div class="application-fiche_onglet_body_single">
+                    <ng-container *ngIf="roles$ | async as roles">
+                        <div >
+                            <input list="roles" (change)="onSortChangeRole($event)"/>
+                            <datalist id="roles" >
+                                <option *ngFor="let role of roles" value="{{role.id}}">{{role.label}}</option>
+                            </datalist>
+                        </div>
+                        <span (click)="addAppRole()">Add</span>
+                    </ng-container>
+                </div>
+                <div class="application-fiche_onglet_body_single">
+                    <span>Roles : 
+                    <ng-container *ngIf="appRoles$ | async as appRoles">
+                        <span *ngFor="let appRole of appRoles" (click)="deleteAppRole(appRole.id)">{{appRole.label}}, </span>
+                    </ng-container>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="application-fiche_onglet">
+            <div class="application-fiche_onglet_header">
+                <label class="application-fiche_onglet_header_title">Users</label>
+            </div>
+            <div class="application-fiche_onglet_body">
+                <div class="application-fiche_onglet_body_double">
+                    <div class="application-fiche_onglet_body_single">
+                        <table class="application-fiche_onglet_body_table">
+                            <thead class="application-fiche_onglet_body_table_head">
+                                <tr class="application-fiche_onglet_body_table_head_tr">
+                                    <th>Firstname</th>
+                                    <th>Lastname</th>
+                                    <th>Email</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody class="application-fiche_onglet_body_table_body">
+                                <tr *ngFor="let user of application.users" class="application-fiche_onglet_body_table_body_tr">
+                                    <td>{{user.firstname}}</td>
+                                    <td>{{user.lastname}}</td>
+                                    <td>{{user.email}}</td>
+                                    <td><div class="delete" (click)="delete()"></div></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="application-fiche_onglet_body_single">
+                        <ng-container *ngIf="users$ | async as users">
+                            <div (change)="onSortChange($event)">
+                                <input list="users" />
+                                <datalist id="users" >
+                                    <option *ngFor="let user of users">{{user.email}}</option>
+                                </datalist>
+                            </div>
+                            <span (click)="addUser()">Add</span>
+                        </ng-container>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-container>

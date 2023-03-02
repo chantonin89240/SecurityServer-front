@@ -1,0 +1,30 @@
+<app-toolbar></app-toolbar>
+<div class="user">
+    <span class="user_text">All users</span>
+    <ng-container *ngIf="users$ | async as users; else loading">
+        <app-user-tab class="user_tab" [users]="users" (delete)="openDeleteModal($event)" ></app-user-tab>
+        <app-button routerLink="/admins/users/edit" class="user_button" text="Create new user"></app-button>
+    </ng-container>
+    <ng-template #loading>
+        <div class="user_loading">
+            <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+        </div>
+    </ng-template>
+</div>
+
+<div class="grey_shade" [style.display]="deleteModalStyle">
+    <div class="modal">
+        <div class="modal_head">
+            <label class="modal_head_title">Delete a user</label>
+        </div>
+        <form class="modal_body">
+            <div class="modal_body_info">
+                <span class="modal_body_info_text">Are you sure you want to delete this user ?</span>
+            </div>
+            <div class="modal_body_button">
+                <button class="modal_body_button_yes" (click)="closeDeleteModal()">Cancel</button>
+                <button class="modal_body_button_no" (click)="delete()">Delete</button>
+            </div>
+        </form>
+    </div>
+</div>

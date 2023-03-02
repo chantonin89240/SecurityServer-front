@@ -1,24 +1,27 @@
 trigger:
-- feature/archi 
-
+- feature/archi
 pool:
-- vmImage: Ubuntu-latest 
-
+  vmImage: ubuntu-latest
 steps:
-  - task :NodeTool@0
+- task : NodeTool@0
   inputs : 
     versionSpec : '18.x'
   displayName : 'Install Node.js'
 
-  - script : 
-    npm install -g @angular/cli
+- script : 
     npm install 
-    npm run build
-  displayName : 'npm install and build'
+  displayName : 'npm install'
 
-  - task : QodanaScan@2022
-  - task : PublishPipelineArtifact@1
+- script : 
+    npm run test-headless
+  displayName : 'npm test'
+
+- script :
+    npm run build
+  displayName: 'npm build'
+
+- task : PublishPipelineArtifact@1
   inputs : 
-    targetPath : '$(Build.SourcesDirectory')/dist'
+    targetPath : '$(Build.SourcesDirectory)/dist'
     artifact : 'dist'
     publishLocation : 'pipeline'

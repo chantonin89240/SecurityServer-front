@@ -1,5 +1,10 @@
+import { User } from "./user.interface"
+
 export interface Application {
+    id: number
     name: string
     url: string
-    claim: string
+    description: string
+    clientSecret: string | null
+    users: User[] | null
 }

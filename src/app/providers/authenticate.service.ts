@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Login } from '../models/login.interface';
+import { LoginRedirect } from '../models/loginRedirect.interface';
 import { userAuthenticate } from '../models/userAuthenticate.interface';
 
 @Injectable({
@@ -14,20 +15,22 @@ export class AuthenticateService {
 
   constructor(private _httpClient: HttpClient) { }
   
-  login(login: Login): Observable<userAuthenticate> {
-    JSON.stringify(login)
-    
-    return this._httpClient.post<userAuthenticate>(`${this.baseUrl}auth?`, login)
-      .pipe(map(user => {
-        if(user && user.token) {
-          localStorage.setItem('user', JSON.stringify(user))
-        }
-        
-        return user
-      }))
+  login(login: Login): Observable<LoginRedirect> {
+    const headers = new HttpHeaders({'Access-Control-Allow-Origin':'*'})
+
+    return this._httpClient.post<LoginRedirect>(`${this.baseUrl}auth`, login, {headers: headers})
   }
 
   logout() {
-    localStorage.removeItem('user')
+    localStorage.removeItem('token')
+  }
+
+  getToken(codeGrant: string) {
+    return this._httpClient.post(`${this.baseUrl}GetAccess`, {codeGrant: codeGrant}).pipe(map(token => {
+      if(token) {
+        localStorage.setItem('token', JSON.stringify(token))
+      }
+      return token
+    }))
   }
 }
